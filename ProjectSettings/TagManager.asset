@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: suelo
+    uniqueID: 4202731365
+    locked: 0
+  - name: colina
+    uniqueID: 662725595
+    locked: 0
+  - name: nido
+    uniqueID: 1586881781
+    locked: 0
+  - name: gallina
+    uniqueID: 434008851
+    locked: 0
+  - name: player
+    uniqueID: 2077042573
+    locked: 0

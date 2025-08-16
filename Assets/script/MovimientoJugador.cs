@@ -9,6 +9,7 @@ public class NewBehaviourScript : MonoBehaviour
     Rigidbody2D rb;
     public float velocidad = 5f;
     private Animator animator;
+    public GameObject trigoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Movimiento(InputAction.CallbackContext contexto)
     {
-          
         Vector2 valorEntrada = contexto.ReadValue<Vector2>();
 
         animator.SetBool("estaCaminando", true);
@@ -45,13 +45,22 @@ public class NewBehaviourScript : MonoBehaviour
         {
             entrada = Vector2.zero;
         }
-        
-        //asignar valores a los parametros entraaX y entradaY
+
+        // ✅ Estas líneas estaban fuera de todo método: las metí aquí
         animator.SetFloat("entradaX", entrada.x);
         animator.SetFloat("entradaY", entrada.y);
 
-        if(contexto.canceled){
-             animator.SetBool("estaCaminando", false);
+        if (contexto.canceled)
+        {
+            animator.SetBool("estaCaminando", false);
+        }
+    }
+
+    public void SembrarTrigo(InputAction.CallbackContext contexto)
+    {
+        if (contexto.started)
+        {
+            Instantiate(trigoPrefab, transform.position, Quaternion.identity);
         }
     }
 }
